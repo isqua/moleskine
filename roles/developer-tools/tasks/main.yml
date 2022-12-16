@@ -1,0 +1,37 @@
+- name: install core developer tools
+  become: yes
+  ansible.builtin.apt:
+    pkg:
+      - build-essential
+      - curl
+      - git
+      - g++
+      - gcc
+      - libssl-dev
+      - make
+      - rsync
+      - tmux
+      - vim
+      - wget
+      - zsh
+    state: present
+    update_cache: yes
+- name: install inspector tools
+  become: yes
+  ansible.builtin.apt:
+    pkg:
+      - atop
+      - htop
+      - lsof
+      - netcat
+      - telnet
+      - jq
+    state: present
+    update_cache: yes
+- name: install devops tools
+  become: yes
+  ansible.builtin.apt:
+    pkg:
+      - awscli
+    state: present
+    update_cache: yes

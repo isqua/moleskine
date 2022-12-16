@@ -1,0 +1,16 @@
+namespace: isqua
+name: moleskine
+version: 0.0.1
+readme: README.md
+authors:
+- isqua <isqua@isqua.ru>
+license:
+- MIT
+license_file: 'LICENSE'
+tags: []
+dependencies: {}
+repository: https://github.com/isqua/moleskine
+documentation: https://github.com/isqua/moleskine
+homepage: https://github.com/isqua/moleskine
+issues: https://github.com/isqua/moleskine
+build_ignore: []

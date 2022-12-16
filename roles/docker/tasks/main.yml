@@ -1,0 +1,15 @@
+- name: install docker # https://docs.docker.com/engine/
+  become: yes
+  ansible.builtin.apt:
+    pkg:
+      - docker
+      - docker-compose
+      - skopeo # A tool for copying containers between registries https://github.com/containers/skopeo
+    state: present
+    update_cache: yes
+- name: allow to manage docker
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
