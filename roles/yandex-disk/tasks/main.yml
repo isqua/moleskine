@@ -1,0 +1,16 @@
+- name: Add Yandex Disk repository
+  ansible.builtin.apt_repository:
+    repo: deb http://repo.yandex.ru/yandex-disk/deb/ stable main
+    state: present
+    filename: yandex-disk
+- name: Add Yandex Disk repo apt key
+  ansible.builtin.apt_key:
+    url: https://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG
+    state: present
+- name: Install Yandex Disk
+  become: yes
+  ansible.builtin.apt:
+    pkg:
+      - yandex-disk
+    state: present
+    update_cache: yes
