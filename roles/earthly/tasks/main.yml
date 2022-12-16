@@ -1,0 +1,39 @@
+- name: Download latest release (linux-amd64)
+  become: yes
+  ansible.builtin.get_url:
+    url: "https://github.com/earthly/earthly/releases/download/{{ earthly_version }}/earthly-linux-amd64"
+    dest: /usr/local/bin/earthly
+    mode: 755
+  when:
+    - ansible_system == "Linux"
+    - ansible_architecture == "x86_64"
+
+- name: Download latest release (linux-arm64)
+  become: yes
+  ansible.builtin.get_url:
+    url: "https://github.com/earthly/earthly/releases/download/{{ earthly_version }}/earthly-linux-arm64"
+    dest: /usr/local/bin/earthly
+    mode: 755
+  when:
+    - ansible_system == "Linux"
+    - ansible_architecture == "arm64"
+
+- name: Download latest release (darwin-amd64)
+  become: yes
+  ansible.builtin.get_url:
+    url: "https://github.com/earthly/earthly/releases/download/{{ earthly_version }}/earthly-darwin-amd64"
+    dest: /usr/local/bin/earthly
+    mode: 755
+  when:
+    - ansible_system == "Darwin"
+    - ansible_architecture == "x86_64"
+
+- name: Download latest release (darwin-arm64)
+  become: yes
+  ansible.builtin.get_url:
+    url: "https://github.com/earthly/earthly/releases/download/{{ earthly_version }}/earthly-darwin-arm64"
+    dest: /usr/local/bin/earthly
+    mode: 755
+  when:
+    - ansible_system == "Darwin"
+    - ansible_architecture == "arm64"
