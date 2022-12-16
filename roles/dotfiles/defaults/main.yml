@@ -1,0 +1,10 @@
+repository: "git@github.com:{{ ansible_user_id }}/dotfiles.git"
+branch: "master"
+target_dir: "{{ ansible_env.HOME }}/.dotfiles"
+link_files:
+  - { source: "gitconfig", dest: ".gitconfig" }
+  - { source: "inputrc", dest: ".inputrc" }
+  - { source: "vimrc", dest: ".vimrc" }
+  - { source: "zshrc", dest: ".zshrc" }
+  - { source: "bashrc", dest: ".bashrc" }
+  - { source: "tmux.conf", dest: ".tmux.conf" }

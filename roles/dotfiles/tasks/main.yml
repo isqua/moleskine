@@ -1,0 +1,12 @@
+- name: install dotfiles
+  ansible.builtin.git:
+    repo: "{{ repository }}"
+    dest: "{{ target_dir }}"
+    version: "{{ branch }}"
+    track_submodules: true
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: "{{ target_dir }}/{{ item.source }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop: "{{ link_files }}"
