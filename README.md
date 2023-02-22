@@ -14,3 +14,4 @@ Please don’t use roles blindly. Read the code before executing.
 - [docker](./roles/docker/) installs and sets up docker engine
 - [dotfiles](./roles/dotfiles/) clones repository from your dotfiles and sets symbolic links to it
 - [earthly](./roles/earthly/) installs the [earthly](https://earthly.dev) tool according to machine architecture (macos/linux and amd/arm)
+- [shared-nvm](./roles/shared-nvm/) installs the Node Version Manager tool to shared folder, so all users may _share_ the same nodejs versions

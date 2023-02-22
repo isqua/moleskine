@@ -1,0 +1,25 @@
+- name: Install nvm
+  become: yes
+  ansible.builtin.git:
+    repo: https://github.com/nvm-sh/nvm.git
+    dest: "{{ nvm_path }}"
+    version: "{{ nvm_version }}"
+- name: Allow developers to use nvm
+  become: yes
+  ansible.builtin.file:
+    path: "{{ nvm_path }}"
+    state: directory
+    group: "{{ developers_group }}"
+    mode: "g+ws"
+    recurse: yes
+- name: Source NVM code in user sessions
+  become: yes
+  ansible.builtin.template:
+    src: nvm.sh.j2
+    dest: "/etc/profile.d/nvm.sh"
+- name: Install node and set version
+  become: yes
+  ansible.builtin.shell: source {{ nvm_path }}/nvm.sh && nvm install {{ node_version }} && nvm alias default {{ node_version }}
+  args:
+    creates: "{{ nvm_path }}/alias/default"
+    executable: /bin/bash

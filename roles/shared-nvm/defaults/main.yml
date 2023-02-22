@@ -1,0 +1,4 @@
+nvm_path: "/usr/share/nvm"
+nvm_version: "v0.39.3"
+node_version: 18.14.2
+developers_group: "developers"
